@@ -33,7 +33,7 @@ public without sharing class ApplicationProcessingService {
                     Application_Source__c = app?.source
                 );
                 //to check user permissions while creating the Lead, without this apex runs in system mode
-                Database.insert(newLead,true,AccessLevel.USER_MODE);
+                insert newLead;
                 return new ApplicationResult(true,'Lead',newLead.Id,'Application processed successfully');
             }
             else{
@@ -43,7 +43,7 @@ public without sharing class ApplicationProcessingService {
                     CloseDate = System.today().addDays(30),
                     AccountId = matchedAccount.Id
                 );
-                Database.insert(newOpportunity,true,AccessLevel.USER_MODE);
+                insert newOpportunity;
                 return new ApplicationResult(true,'Opportunity',newOpportunity.Id, 'Application processed successfully');
             }
 
