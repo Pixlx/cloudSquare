@@ -1,4 +1,4 @@
-public with sharing class ApplicationProcessingService {
+public without sharing class ApplicationProcessingService {
 
     public static ApplicationResult processApplication(ApplicationDTO app) {
         try {
