@@ -1,0 +1,28 @@
+<template>
+    <!-- To display success / error messages on the public site-->
+    <template lwc:if={notification.isVisible}>
+        <div class="slds-notify slds-notify_alert slds-theme_{notification.variant}" role="alert">
+            <span class="slds-assistive-text">{notification.variant}</span>
+            <lightning-icon icon-name={notification.variant} size="x-small" variant="inverse" class="slds-m-right_x-small"></lightning-icon>
+            <h2>{notification.message}</h2>
+        </div>
+    </template>
+    <div class="slds-p-around_x-large">
+    <lightning-card  title="Application Form" icon-name="standard:account">
+        <div class="slds-p-right_large">
+            <lightning-button label="Submit" slot="actions" onclick={handleClick} required></lightning-button>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="text" label="Contact First Name" name="firstName" onchange={handleChange} required> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="text" label="Contact Last Name" name="lastName" onchange={handleChange} required> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="text" label="Company Name" name="company" onchange={handleChange} required> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="email" label="Email" name = "email" onchange={handleChange} required> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="tel" label="Phone" name="phone" onchange={handleChange} required> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="text" label="Federal Tax Id" name="federalTaxId" onchange={handleChange}> </lightning-input></div>
+            <div class="slds-p-right_medium slds-p-left_medium"><lightning-input type="Double" label="Annual Revenue" name="annualAccountRevenue" onchange={handleChange}> </lightning-input></div>
+        </div>
+        <div >
+            blank space
+        </div>
+    </lightning-card>
+    <lightning-spinner if:true={isSpinnerActive} size="medium" alternative-text="Loading"></lightning-spinner>
+    </div>
+</template>
